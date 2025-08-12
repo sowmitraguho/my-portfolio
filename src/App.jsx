@@ -15,12 +15,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <main className="pt-20">
-        {/* add some content here for testing */}
-        <h1 className="text-black">Hello world</h1>
-      </main>
-      <Footer />
+    <HeroSection/>
     </>
   )
 }

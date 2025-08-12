@@ -1,51 +1,53 @@
-import Section from '@/Shared/Section/Section';
-import { Download } from 'lucide-react';
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import heroAnimation from "../../assets/Lottifiles/heroAnimation.json"; 
 
 const HeroSection = () => {
-    return (
-        <Section id="hero" bgClass="hero-bg-animation" className="flex items-center justify-center">
-      <div className="text-center max-w-4xl animate-fade-in-up">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 ">
-          Hello, I'm <span className="text-[var(--accent-color)]">Sowmitra Guha</span>
+  return (
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-white dark:bg-gray-900 transition-colors duration-500">
+      {/* Left Text Content */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex-1 max-w-xl text-center md:text-left"
+      >
+        <h1 className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
+          Hi, I'm Sowmitra Guha
         </h1>
-        <p className="text-xl sm:text-2xl mb-8 text-[var(--text-color)] glow-text">
-          &gt; I build impactful web experiences.
+        <p className="mt-6 text-lg md:text-xl text-gray-700 dark:text-gray-300">
+          A passionate Web Developer & Software Engineer<br />
+          Building beautiful, fast, and scalable web applications.
         </p>
-        <a
-          href="/your-resume.pdf" // Replace with actual path to your resume PDF
-          download="YourName_Resume.pdf"
-          className="inline-flex items-center px-8 py-4 rounded-xl font-semibold text-lg bg-[var(--accent-color)] text-[var(--main-bg-color)]
-                     transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-var(--accent-color) focus:ring-opacity-75
-                     relative overflow-hidden group rotating-border-inner"
-        >
-          <Download size={24} className="mr-3" /> Download Resume
-          <style>{`
-            .rotating-border-inner::before {
-              content: '';
-              position: absolute;
-              top: -50%;
-              left: -50%;
-              width: 200%;
-              height: 200%;
-              background: conic-gradient(
-                from 0deg,
-                transparent 0%,
-                transparent 45%,
-                var(--main-bg-color) 45%,
-                var(--main-bg-color) 55%,
-                transparent 55%,
-                transparent 100%
-              );
-              animation: rotate-border 3s linear infinite;
-              z-index: -1;
-              opacity: 0.2;
-            }
-          `}</style>
-        </a>
-      </div>
-    </Section>
-    );
+        <div className="mt-8 flex justify-center md:justify-start gap-4">
+          <a
+            href="#projects"
+            className="inline-block px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg hover:brightness-110 transition"
+          >
+            View Projects
+          </a>
+          <a
+            href="#contact"
+            className="inline-block px-6 py-3 rounded-md border-2 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text font-semibold hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 transition"
+          >
+            Contact Me
+          </a>
+        </div>
+      </motion.div>
+
+      {/* Right Animation Content */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="flex-1 max-w-md md:max-w-lg mt-10 md:mt-0"
+      >
+        <Lottie animationData={heroAnimation} loop={true} autoplay={true} />
+
+      </motion.div>
+    </section>
+  );
 };
 
 export default HeroSection;
