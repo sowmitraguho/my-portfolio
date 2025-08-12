@@ -6,7 +6,7 @@ import HeroSection from './Pages/HeroSection/HeroSection'
 import About from './Pages/About/About'
 import EducationSection from './Pages/EducationSection/EducationSection'
 import SkillSection from './Pages/SkillSection/SkillSection'
-import Projects from './Pages/Projects/Projects'
+import ProjectsSection from './Pages/Projects/ProjectsSection'
 import Contacts from './Pages/Contacts/Contacts'
 import Footer from './Pages/Footer/Footer'
 
@@ -15,13 +15,13 @@ function App() {
 
   return (
     <>
-    <HeroSection/>
-    <About/>
-    <EducationSection/>
-    <SkillSection/>
-    <Projects/>
-    <Contacts/>
-    <Footer/>
+      <HeroSection />
+      <About />
+      <EducationSection />
+      <SkillSection />
+      <ProjectsSection />
+      <Contacts />
+      <Footer />
     </>
   )
 }
