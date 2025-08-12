@@ -57,7 +57,7 @@ export default function ProjectsSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold mb-8 text-center text-indigo-600 dark:text-indigo-400">
+      <h2 className="text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
         My Projects
       </h2>
 

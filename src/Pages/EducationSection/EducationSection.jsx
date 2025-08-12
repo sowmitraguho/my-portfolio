@@ -34,6 +34,11 @@ const Education = () => {
       id="education"
       className="relative py-20 px-6 md:px-20 bg-white dark:bg-gray-900 transition-colors duration-500"
     >
+      {/* Headline */}
+      <h2 className="text-4xl font-extrabold text-center  bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
+        My Education
+      </h2>
+      <p className="text-center mt-5 mb-24 text-xl">I am a self-taught web developer, so my academic background doesn’t fully reflect my skills and experience in web development.</p>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         
         {/* Left: Lottie Animation */}
