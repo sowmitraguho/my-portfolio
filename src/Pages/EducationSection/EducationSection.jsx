@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react"; // for later Lottie animation
 import educationAnimation from "../../assets/Lottifiles/Book loading.json"; // placeholder path
+import Particles from "@/components/Particles/Particles";
+import LightRays from "@/components/BackgroundAnimation/LightRays";
+import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 
 const educationData = [
   {
@@ -29,16 +32,46 @@ const educationData = [
 ];
 
 const Education = () => {
+  const { theme } = useContext(ThemeContext);
+  const particleColors = theme === "dark"
+    ? ["#ffffff", "#aaaaaa"] // light particles for dark mode
+    : ["#1e40af", "#3b82f6"]; // blue-ish particles for light mode
   return (
     <section
       id="education"
-      className="relative py-20 px-6 md:px-20 bg-white dark:bg-gray-900 transition-colors duration-500"
+      className="relative py-20 px-6 md:px-20 transition-colors duration-500"
     >
+       {/* Background animation */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: -10,
+                pointerEvents: 'none'
+              }}
+            >
+              <Particles
+                particleColors={particleColors}
+                particleCount={2000}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+              /> 
+      
+            </div>
       {/* Headline */}
-      <h2 className="text-4xl font-extrabold text-center  bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
-        My Education
+      <h2 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 mb-6 text-center">
+          My Education
       </h2>
-      <p className="text-center mt-5 mb-24 text-xl">I am a self-taught web developer, so my academic background doesn’t fully reflect my skills and experience in web development.</p>
+      <p className="text-center mt-5 mb-24 text-xl">
+        I am a self-taught web developer, so my academic background doesn’t fully reflect my skills and experience in web development.
+      </p>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         
         {/* Left: Lottie Animation */}

@@ -9,7 +9,10 @@ import LightRays from "@/components/BackgroundAnimation/LightRays";
 import { Link } from "react-router";
 
 const HeroSection = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
+  const particleColors = theme === "dark"
+    ? ["#ffffff", "#aaaaaa"] 
+    : ["#1e40af", "#3b82f6"];
   return (
     <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 transition-colors duration-500 overflow-hidden">
 
@@ -26,8 +29,8 @@ const HeroSection = () => {
         }}
       >
         {theme == 'dark' ? <Particles
-          particleColors={['#ffffff', '#ffffff']}
-          particleCount={200}
+          particleColors={particleColors}
+          particleCount={600}
           particleSpread={10}
           speed={0.1}
           particleBaseSize={100}

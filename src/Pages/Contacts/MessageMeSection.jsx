@@ -1,18 +1,25 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLinkedin } from "react-icons/fa";
 import Lottie from "lottie-react";
 import contactAnim from "../../assets/Lottifiles/Email.json";
+import Particles from "@/components/Particles/Particles";
+import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 
 export default function MessageMeSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-
+  const { theme } = useContext(ThemeContext);
+    const particleColors = theme === "dark"
+      ? ["#ffffff", "#aaaaaa"] // light particles for dark mode
+      : ["#1e40af", "#3b82f6"]; // blue-ish particles for light mode
   return (
     <section
       ref={ref}
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900"
+      className="relative py-16 px-4 sm:px-6 lg:px-8 "
     >
+      {/* Background animation */}
+           
       <AnimatePresence>
         {isInView && (
           <motion.div
@@ -21,7 +28,29 @@ export default function MessageMeSection() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2 sm:grid-cols-1 items-center"
-          >
+          >  <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: -10,
+                pointerEvents: 'none'
+              }}
+            >
+              <Particles
+                particleColors={particleColors}
+                particleCount={900}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+              /> 
+      
+            </div>
             {/* LEFT: Heading + Contact Info */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}

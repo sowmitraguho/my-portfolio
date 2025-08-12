@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button"; // shadcn button
 import { Badge } from "@/components/ui/badge"; // shadcn badge
 import { FiGithub, FiExternalLink, FiInfo } from "react-icons/fi";
 import { useNavigate } from "react-router";
+import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
+import Particles from "@/components/Particles/Particles";
 
 const projectsData = [
   {
@@ -54,9 +56,37 @@ const projectsData = [
 
 export default function ProjectsSection() {
   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
+  const particleColors = theme === "dark"
+    ? ["#ffffff", "#aaaaaa"] // light particles for dark mode
+    : ["#1e40af", "#3b82f6"]; // blue-ish particles for light mode
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12">
+    <section className="relative max-w-7xl mx-auto px-6 py-12">
+      {/* Background animation */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: -10,
+                pointerEvents: 'none'
+              }}
+            >
+              <Particles
+                particleColors={particleColors}
+                particleCount={2000}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+              /> 
+      
+            </div>
       <h2 className="text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
         My Projects
       </h2>

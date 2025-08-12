@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button"; 
-import myPhoto from "@/assets/myPhoto.png"; 
+import { Button } from "@/components/ui/button";
+import myPhoto from "@/assets/myPhoto.png";
 import Particles from "@/components/Particles/Particles";
 import LightRays from "@/components/BackgroundAnimation/LightRays";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
@@ -9,71 +9,67 @@ import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 
 const About = () => {
   const { theme } = useContext(ThemeContext);
+  const particleColors = theme === "dark"
+    ? ["#ffffff", "#aaaaaa"] 
+    : ["#1e40af", "#3b82f6"]; 
   return (
     <section
       id="about"
-      className="relative py-20 px-6 md:px-20  transition-colors duration-500 overflow-hidden flex flex-col md:flex-row items-center justify-center gap-10"
+      className="relative py-20 px-6 md:px-20 transition-colors duration-500 overflow-hidden flex flex-col md:flex-row items-center justify-center gap-10"
+      style={{
+        background: theme === "dark" ? "" : "linear-gradient(to bottom, rgba(156,163,175,0.5), #ffffff)",
+      }}
+
     >
-      
-       {/* Background animation */}
-  <div 
-    style={{ 
-      position: 'absolute', 
-      top: 0, 
-      left: 0, 
-      width: '100%', 
-      height: '100%', 
-      zIndex: -10, 
-      pointerEvents: 'none' 
-    }}
-  >
-    {theme == 'dark' ?  <Particles
-    particleColors={['#ffffff', '#ffffff']}
-    particleCount={200}
-    particleSpread={10}
-    speed={0.1}
-    particleBaseSize={100}
-    moveParticlesOnHover={true}
-    alphaParticles={false}
-    disableRotation={false}
-  /> : <LightRays
-    raysOrigin="top-center"
-    raysColor="#00ffff"
-    raysSpeed={1.5}
-    lightSpread={0.8}
-    rayLength={1.2}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
-    className="custom-rays"
-  />}
-    
-  </div>
+
+      {/* Background animation */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -10,
+          pointerEvents: 'none'
+        }}
+      >
+        <Particles
+          particleColors={particleColors}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+
+      </div>
       {/* Left: Image with rotating border */}
-<motion.div
-  initial={{ opacity: 0, x: 50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
-  className="relative"
->
-  {/* Rotating border layer */}
-  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-rotate-border" />
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+        {/* Rotating border layer */}
+        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-rotate-border" />
 
-  {/* Glow effect (optional) */}
-  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-lg opacity-70 animate-pulse-glow" />
+        {/* Glow effect (optional) */}
+        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-lg opacity-70 animate-pulse-glow" />
 
-  {/* Static image container */}
-  <div className="relative rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-300 dark:ring-gray-700">
-    <img
-      src={myPhoto}
-      alt="Sowmitra Guha"
-      className="w-full h-auto object-cover rounded-xl"
-      loading="lazy"
-    />
-  </div>
-</motion.div>
+        {/* Static image container */}
+        <div className="relative rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-300 dark:ring-gray-700">
+          <img
+            src={myPhoto}
+            alt="Sowmitra Guha"
+            className="w-full h-auto object-cover rounded-xl"
+            loading="lazy"
+          />
+        </div>
+      </motion.div>
 
 
       {/* Right: Text Content */}
@@ -101,15 +97,15 @@ const About = () => {
         </p>
 
         <Button
-  variant="outline"
-  className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white transition-all duration-300 hover:scale-105"
-  onClick={() => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  }}
->
-  <span className="relative z-10">Contact Me</span>
-  <span className="absolute inset-0 bg-white dark:bg-gray-900 m-[2px] rounded-md"></span>
-</Button>
+          variant="outline"
+          className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white transition-all duration-300 hover:scale-105"
+          onClick={() => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          <span className="relative z-10">Contact Me</span>
+          <span className="absolute inset-0 bg-white dark:bg-gray-900 m-[2px] rounded-md"></span>
+        </Button>
 
       </motion.div>
     </section>

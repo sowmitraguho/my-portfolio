@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import {
   FaLinkedin,
@@ -9,6 +9,8 @@ import {
 } from "react-icons/fa";
 import Lottie from "lottie-react";
 import footerAnim from "../../assets/Lottifiles/footer.json"; // replace with your Lottie JSON
+import Particles from "@/components/Particles/Particles";
+import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 
 const socialLinks = [
   {
@@ -44,8 +46,36 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { theme } = useContext(ThemeContext);
+    const particleColors = theme === "dark"
+      ? ["#ffffff", "#aaaaaa"] // light particles for dark mode
+      : ["#1e40af", "#3b82f6"]; // blue-ish particles for light mode
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 py-12 px-6">
+    <footer className="relative py-12 px-6">
+      {/* Background animation */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: -10,
+                pointerEvents: 'none'
+              }}
+            >
+              <Particles
+                particleColors={particleColors}
+                particleCount={900}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+              /> 
+      
+            </div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Lottie Animation */}
         <div className="w-32 h-32">

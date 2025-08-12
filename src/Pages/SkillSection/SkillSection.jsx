@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SiC, SiCplusplus, SiJavascript, SiTypescript, SiPython, SiReact, SiTailwindcss, SiBootstrap, SiHtml5, SiCss3, SiDaisyui, SiShadcnui, SiExpress, SiNodedotjs, SiFirebase, SiMongodb, SiNetlify, SiRender, SiGit, SiNextdotjs } from "react-icons/si";
 import Lottie from "lottie-react";
 import skillsAnimation from "@/assets/Lottifiles/skillsAnimation.json"; // Replace with your lottie JSON path
+import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
+import Particles from "@/components/Particles/Particles";
+import LightRays from "@/components/BackgroundAnimation/LightRays";
+import SkillCard from "@/components/SkillCard/SkillCard";
 
 const skillSections = [
   {
@@ -46,17 +50,39 @@ const skillSections = [
   },
 ];
 
-const SkillCard = ({ icon, name, description }) => (
-  <div className="flex flex-col items-center text-center p-3 bg-white dark:bg-gray-800 rounded-lg shadow-md w-24 md:w-28 cursor-default select-none hover:shadow-lg transition-shadow">
-    <div className="text-blue-500 dark:text-blue-400 mb-2">{icon}</div>
-    <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100">{name}</h4>
-    <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">{description}</p>
-  </div>
-);
+
 
 const SkillSection = () => {
+  const { theme } = useContext(ThemeContext);
+  const particleColors = theme === "dark"
+    ? ["#ffffff", "#aaaaaa"] 
+    : ["#1e40af", "#3b82f6"];
   return (
-    <section className="px-6 md:px-20 py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-500 min-h-screen">
+    <section className="relative px-6 md:px-20 py-16 transition-colors duration-500 min-h-screen">
+       {/* Background animation */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -10,
+          pointerEvents: 'none'
+        }}
+      >
+         <Particles
+          particleColors={particleColors}
+          particleCount={500}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        /> 
+
+      </div>
        {/* Headline */}
       <h2 className="text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
         My Skills & Expertise
