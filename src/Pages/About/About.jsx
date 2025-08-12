@@ -50,21 +50,31 @@ const About = () => {
   />}
     
   </div>
-      {/* Left: Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="flex-shrink-0 max-w-xs md:max-w-sm rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-300 dark:ring-gray-700"
-      >
-        <img
-          src={myPhoto} // replace with your real image path
-          alt="Sowmitra Guha"
-          className="w-full h-auto object-cover"
-          loading="lazy"
-        />
-      </motion.div>
+      {/* Left: Image with rotating border */}
+<motion.div
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  className="relative"
+>
+  {/* Rotating border layer */}
+  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-rotate-border" />
+
+  {/* Glow effect (optional) */}
+  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-lg opacity-70 animate-pulse-glow" />
+
+  {/* Static image container */}
+  <div className="relative rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-300 dark:ring-gray-700">
+    <img
+      src={myPhoto}
+      alt="Sowmitra Guha"
+      className="w-full h-auto object-cover rounded-xl"
+      loading="lazy"
+    />
+  </div>
+</motion.div>
+
 
       {/* Right: Text Content */}
       <motion.div
@@ -91,14 +101,16 @@ const About = () => {
         </p>
 
         <Button
-          variant="outline"
-          className="bg-transparent border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text font-semibold hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 transition"
-          onClick={() => {
-            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          Contact Me
-        </Button>
+  variant="outline"
+  className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white transition-all duration-300 hover:scale-105"
+  onClick={() => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  <span className="relative z-10">Contact Me</span>
+  <span className="absolute inset-0 bg-white dark:bg-gray-900 m-[2px] rounded-md"></span>
+</Button>
+
       </motion.div>
     </section>
   );

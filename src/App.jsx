@@ -17,6 +17,11 @@ function App() {
     <>
     <HeroSection/>
     <About/>
+    <EducationSection/>
+    <SkillSection/>
+    <Projects/>
+    <Contacts/>
+    <Footer/>
     </>
   )
 }

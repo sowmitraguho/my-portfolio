@@ -1,67 +1,92 @@
-import Card from '@/Shared/Card/Card';
-import Section from '@/Shared/Section/Section';
-import { GraduationCap } from 'lucide-react';
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react"; // for later Lottie animation
+import educationAnimation from "../../assets/Lottifiles/Book loading.json"; // placeholder path
 
-const EducationSection = () => {
-    const educationTimeline = [
-    {
-      year: '2020 - 2024',
-      title: 'Bachelor of Science in Engineering',
-      institution: 'University Name, City',
-      description: 'Focused on Software Engineering, with coursework in data structures, algorithms, web development, and database systems. Graduated with Honors.',
-      side: 'left' // Will appear on the left of the line
-    },
-    {
-      year: '2018 - 2020',
-      title: 'Higher Secondary Certificate (HSC)',
-      institution: 'College Name, City',
-      description: 'Majored in Science, achieving strong results in Physics, Chemistry, and Mathematics.',
-      side: 'right' // Will appear on the right of the line
-    },
-    {
-      year: '2008 - 2018',
-      title: 'Secondary School Certificate (SSC)',
-      institution: 'School Name, City',
-      description: 'Completed secondary education with a focus on core academic subjects.',
-      side: 'left' // Will appear on the left of the line
-    },
-  ];
-    return (
-        <Section id="education" bgClass="education-bg-animation">
-      <h2 className="text-4xl sm:text-5xl font-bold mb-10 glow-text animate-fade-in-up">
-        <GraduationCap size={40} className="inline-block mr-4 text-[var(--accent-color)]" />
-        Education
-      </h2>
-      <div className="relative w-full max-w-4xl mx-auto py-8">
-        {/* Central Vertical Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[var(--border-glow-color)] shadow-md z-0"></div>
+const educationData = [
+  {
+    title: "BSc in EEE",
+    institution: "University of Chittagong",
+    year: "Ongoing",
+    description:
+      "Currently pursuing Bachelor of Science in Electrical and Electronic Engineering with a passion for technology and innovation.",
+  },
+  {
+    title: "HSC",
+    institution:
+      "Chattagram City Corporation Kaiser-Niloufer College",
+    year: "Grade Point: 4.50 / 5.00",
+    description:
+      "Completed Higher Secondary Certificate with a strong foundation in science and mathematics.",
+  },
+  {
+    title: "SSC",
+    institution: "J M Sen School & College",
+    year: "GPA: 5.00 / 5.00",
+    description:
+      "Achieved perfect GPA in Secondary School Certificate examination.",
+  },
+];
 
-        {educationTimeline.map((item, index) => (
-          <div
-            key={index}
-            className={`flex items-center w-full my-8 ${
-              item.side === 'left' ? 'flex-row-reverse md:flex-row' : 'flex-row'
-            } animate-fade-in-up`}
-            style={{ animationDelay: `${0.1 * index}s` }}
-          >
-            {/* Circle on the line */}
-            <div className={`absolute ${item.side === 'left' ? 'left-1/2 -ml-2' : 'left-1/2 -ml-2'} md:relative md:ml-0 md:mr-0 transform -translate-x-1/2 md:translate-x-0 w-4 h-4 rounded-full bg-[var(--accent-color)] z-10 flex-shrink-0
-                         ${item.side === 'left' ? 'md:-ml-2' : 'md:-mr-2'}`}></div>
-
-            {/* Content Card */}
-            <Card className={`flex-grow md:w-5/12 p-6 transition-transform hover:scale-[1.01] duration-300
-                            ${item.side === 'left' ? 'md:mr-auto text-right md:pr-10' : 'md:ml-auto text-left md:pl-10'}`}>
-              <h3 className="text-2xl font-semibold mb-2 glow-text">{item.title}</h3>
-              <p className="text-lg text-[var(--accent-color)] mb-2">{item.year}</p>
-              <p className="text-[var(--text-color)] mb-3">{item.institution}</p>
-              <p className="text-base text-[var(--text-color)]">{item.description}</p>
-            </Card>
+const Education = () => {
+  return (
+    <section
+      id="education"
+      className="relative py-20 px-6 md:px-20 bg-white dark:bg-gray-900 transition-colors duration-500"
+    >
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        
+        {/* Left: Lottie Animation */}
+        <div className="w-full md:w-1/3 flex justify-center">
+          <div className="w-64 h-64">
+            <Lottie animationData={educationAnimation} loop={true} />
           </div>
-        ))}
+        </div>
+
+        {/* Right: Timeline */}
+        <div className="w-full md:w-2/3 relative">
+          {/* Center line */}
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 h-full rounded-full"></div>
+
+          <div className="flex flex-col gap-12">
+            {educationData.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className={`relative flex flex-col md:flex-row ${
+                  index % 2 === 0
+                    ? "md:items-start"
+                    : "md:flex-row-reverse md:items-start"
+                }`}
+              >
+                {/* Connector dot */}
+                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
+
+                {/* Card */}
+                <div className="mt-10 md:mt-0 bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-lg w-full md:w-[45%]">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    {edu.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {edu.institution}
+                  </p>
+                  <p className="text-sm font-medium text-blue-500 dark:text-blue-400 mt-1">
+                    {edu.year}
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 mt-3">
+                    {edu.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-    </Section>
-    );
+    </section>
+  );
 };
 
-export default EducationSection;
+export default Education;
