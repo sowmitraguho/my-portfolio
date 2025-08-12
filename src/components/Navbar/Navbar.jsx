@@ -46,9 +46,15 @@ const Navbar = () => {
           >
             About Me
           </Link>
+          <Link
+            to="/projects"
+            className="text-md font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition hover:from-red-500 hover:via-pink-500 hover:to-blue-5000"
+          >
+            My Projects
+          </Link>
           
           <Link
-            to="/contactus"
+            to="/contact"
             className="text-md font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition hover:from-red-500 hover:via-pink-500 hover:to-blue-500"
           >
             Contact

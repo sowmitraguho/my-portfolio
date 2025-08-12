@@ -14,7 +14,7 @@ const HeroSection = () => {
     ? ["#ffffff", "#aaaaaa"] 
     : ["#1e40af", "#3b82f6"];
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 transition-colors duration-500 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 transition-colors duration-500 overflow-hidden pt-24 md:pt-6">
 
       {/* Background animation */}
       <div

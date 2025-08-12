@@ -98,7 +98,7 @@ const About = () => {
 
         <Button
           variant="outline"
-          className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white transition-all duration-300 hover:scale-105"
+          className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-purple-500 transition-all duration-300 hover:scale-105"
           onClick={() => {
             document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
           }}
