@@ -24,7 +24,8 @@ const Navbar = () => {
   //if(loading) return <Spinner/>;
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md border-b border-gray-200 dark:border-gray-800 z-50">
+    <header className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-md shadow-md border-b border-gray-200/50 dark:border-gray-800/50 fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Left: Logo */}
         <Link to="/" className="flex items-center gap-2">

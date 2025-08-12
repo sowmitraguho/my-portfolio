@@ -1,72 +1,107 @@
-import Section from '@/Shared/Section/Section';
-import { User } from 'lucide-react';
-import React from 'react';
-import myPhoto from '@/assets/myPhoto.png'; 
+import React, { useContext } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button"; 
+import myPhoto from "@/assets/myPhoto.png"; 
+import Particles from "@/components/Particles/Particles";
+import LightRays from "@/components/BackgroundAnimation/LightRays";
+import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
+
 
 const About = () => {
-    return (
-        <Section id="about" bgClass="about-bg-animation">
-      <h2 className="text-4xl sm:text-5xl font-bold mb-10 animate-fade-in-up">
-        <User size={40} className="inline-block mr-4 text-[var(--accent-color)]" />
-        About Me
-      </h2>
-      <div className="flex flex-col md:flex-row items-center md:items-start max-w-4xl mx-auto gap-8">
-        <div className="relative w-48 h-48 sm:w-64 sm:h-64 flex-shrink-0 animate-fade-in-up rotating-border-image">
-            
-          <img
-            src={myPhoto}
-            alt="Developer Photo"
-            className="w-full h-full object-cover rounded-full p-2 border border-[var(--card-bg-color)] animate-image-pulse"
-            onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/256x256/0A192F/8892B0?text=Developer'; }}
-          />
-          <style>{`
-            .rotating-border-image {
-              background: linear-gradient(to right, var(--border-glow-color), var(--secondary-glow-color));
-              border-radius: 9999px; /* For perfect circle */
-              padding: 4px; /* Padding for the border itself */
-              animation: rotate-border 5s linear infinite;
-            }
-            .rotating-border-image::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: conic-gradient(
-                  from 0deg,
-                  transparent 0%,
-                  transparent 25%,
-                  var(--border-glow-color) 25%,
-                  var(--border-glow-color) 50%,
-                  transparent 50%,
-                  transparent 75%,
-                  var(--secondary-glow-color) 75%,
-                  var(--secondary-glow-color) 100%
-                );
-                animation: rotate-border 5s linear infinite;
-                z-index: -1;
-                border-radius: 9999px;
-            }
-            @keyframes image-pulse {
-              0% { transform: scale(1); box-shadow: 0 0 0px var(--accent-color); }
-              50% { transform: scale(1.02); box-shadow: 0 0 15px var(--accent-color); }
-              100% { transform: scale(1); box-shadow: 0 0 0px var(--accent-color); }
-            }
-            .animate-image-pulse { animation: image-pulse 4s infinite alternate ease-in-out; }
-          `}</style>
-        </div>
-        <div className="md:text-left text-center animate-fade-in-up animation-delay-200">
-          <p className="text-lg mb-4 text-[var(--text-color)]">
-            I'm a passionate web developer with a keen eye for detail and a drive to create engaging, high-performance digital experiences. My journey began with a fascination for solving complex problems through code, leading me to specialize in modern web technologies.
-          </p>
-          <p className="text-lg text-[var(--text-color)]">
-            I thrive in dynamic environments and am constantly learning new tools and methodologies to deliver exceptional results. When I'm not coding, I enjoy exploring new tech trends and contributing to open-source projects.
-          </p>
-        </div>
-      </div>
-    </Section>
-    );
+  const { theme } = useContext(ThemeContext);
+  return (
+    <section
+      id="about"
+      className="relative py-20 px-6 md:px-20  transition-colors duration-500 overflow-hidden flex flex-col md:flex-row items-center justify-center gap-10"
+    >
+      
+       {/* Background animation */}
+  <div 
+    style={{ 
+      position: 'absolute', 
+      top: 0, 
+      left: 0, 
+      width: '100%', 
+      height: '100%', 
+      zIndex: -10, 
+      pointerEvents: 'none' 
+    }}
+  >
+    {theme == 'dark' ?  <Particles
+    particleColors={['#ffffff', '#ffffff']}
+    particleCount={200}
+    particleSpread={10}
+    speed={0.1}
+    particleBaseSize={100}
+    moveParticlesOnHover={true}
+    alphaParticles={false}
+    disableRotation={false}
+  /> : <LightRays
+    raysOrigin="top-center"
+    raysColor="#00ffff"
+    raysSpeed={1.5}
+    lightSpread={0.8}
+    rayLength={1.2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="custom-rays"
+  />}
+    
+  </div>
+      {/* Left: Image */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="flex-shrink-0 max-w-xs md:max-w-sm rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-300 dark:ring-gray-700"
+      >
+        <img
+          src={myPhoto} // replace with your real image path
+          alt="Sowmitra Guha"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+
+      {/* Right: Text Content */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-xl text-center md:text-left"
+      >
+        <h2 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 mb-6">
+          About Me
+        </h2>
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+          Hello! I’m <strong>Sowmitra Guha</strong>, a passionate Web Developer
+          and Software Engineer dedicated to crafting beautiful, fast, and
+          scalable web applications. With a strong foundation in JavaScript,
+          React, and modern development tools, I enjoy turning ideas into
+          reality through code.
+        </p>
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+          I specialize in building responsive user interfaces, implementing
+          smooth animations, and ensuring optimal performance. I am always eager
+          to learn new technologies and improve my craft.
+        </p>
+
+        <Button
+          variant="outline"
+          className="bg-transparent border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text font-semibold hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 transition"
+          onClick={() => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Contact Me
+        </Button>
+      </motion.div>
+    </section>
+  );
 };
 
 export default About;
