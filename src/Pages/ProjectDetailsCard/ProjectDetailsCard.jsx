@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router"; // or your routing lib
+import { useParams, Link } from "react-router";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function ProjectDetailCard() {
-  const { projectId } = useParams(); // assuming route: /projects/:projectId
+  const { projectId } = useParams();
   const [project, setProject] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,6 @@ export default function ProjectDetailCard() {
         setProject(found);
       });
   }, [projectId]);
-  console.log(project, projectId);
 
   if (!project) {
     return (
@@ -33,71 +32,95 @@ export default function ProjectDetailCard() {
       transition={{ duration: 0.5 }}
       className="max-w-4xl mx-auto my-24 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg"
     >
-       <img
-  src={project.image}
-  alt={project.title}
-  className="w-full h-auto object-contain rounded-lg mb-6 bg-gray-100 p-2"
-/>
+      {/* Project Main Image */}
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-auto object-contain rounded-lg mb-6 bg-gray-100 p-2"
+      />
 
       {/* Title */}
       <h1 className="text-3xl font-extrabold mb-6 text-gray-900 dark:text-gray-100">
         {project.title}
       </h1>
 
-      {/* About */}
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
-          About This Project
-        </h2>
-        <p className="text-gray-700 dark:text-gray-300">{project.description}</p>
-      </section>
-
-      {/* Tech Used */}
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
-          Technologies Used
-        </h2>
-        <ul className="flex flex-wrap gap-3">
-          {project.tech.map((tech) => (
-            <li
-              key={tech}
-              className="px-3 py-1 bg-indigo-500 text-white rounded-full text-sm font-medium"
-            >
-              {tech}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Responsiveness */}
-      {project.responsiveness && (
+      {/* Brief Description */}
+      {project.details?.brief && (
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
-            Responsiveness
+            Brief Description
           </h2>
-          <p className="text-gray-700 dark:text-gray-300">{project.responsiveness}</p>
+          <p className="text-gray-700 dark:text-gray-300">
+            {project.details.brief}
+          </p>
         </section>
       )}
 
-      {/* Images */}
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-          Project Screenshots
-        </h2>
-        {/* <div className="flex flex-wrap gap-4 justify-center">
-          {project.deviceView.map((src, i) => (
-            <motion.img
-              key={i}
-              src={src}
-              alt={`${project.title} screenshot ${i + 1}`}
-              className="rounded-lg shadow-md max-w-xs w-full object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              loading="lazy"
-            />
-          ))}
-        </div> */}
-      </section>
+      {/* Challenges Faced */}
+      {project.details?.challenges && project.details.challenges.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
+            Challenges Faced
+          </h2>
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+            {project.details.challenges.map((challenge, index) => (
+              <li key={index}>{challenge}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Future Plans */}
+      {project.details?.futurePlans && project.details.futurePlans.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
+            Potential Improvements & Future Plans
+          </h2>
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+            {project.details.futurePlans.map((plan, index) => (
+              <li key={index}>{plan}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Tech Used */}
+      {project.tech && (
+        <section className="mb-6">
+          <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
+            Technologies Used
+          </h2>
+          <ul className="flex flex-wrap gap-3">
+            {project.tech.map((tech) => (
+              <li
+                key={tech}
+                className="px-3 py-1 bg-indigo-500 text-white rounded-full text-sm font-medium"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Device View Images */}
+      {project.deviceView && project.deviceView.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+            Device Views
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.deviceView.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`${project.title} view ${index + 1}`}
+                className="w-full h-auto object-contain rounded-lg bg-gray-100 p-2"
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Links */}
       <section className="flex gap-6 justify-center mt-6">
@@ -119,7 +142,7 @@ export default function ProjectDetailCard() {
         </a>
       </section>
 
-      {/* Back link */}
+      {/* Back Link */}
       <div className="mt-10 text-center">
         <Link
           to="/projects"

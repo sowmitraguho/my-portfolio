@@ -5,10 +5,12 @@ import myPhoto from "@/assets/myPhoto.png";
 import Particles from "@/components/Particles/Particles";
 import LightRays from "@/components/BackgroundAnimation/LightRays";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
+import { useNavigate } from "react-router";
 
 
 const About = () => {
   const { theme } = useContext(ThemeContext);
+  const navigate = useNavigate();
   const particleColors = theme === "dark"
     ? ["#ffffff", "#aaaaaa"] 
     : ["#1e40af", "#3b82f6"]; 
@@ -100,7 +102,7 @@ const About = () => {
           variant="outline"
           className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-purple-500 transition-all duration-300 hover:scale-105"
           onClick={() => {
-            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            navigate('/contact');
           }}
         >
           <span className="relative z-10">Contact Me</span>

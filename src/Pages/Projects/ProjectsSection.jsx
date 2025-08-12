@@ -12,48 +12,45 @@ const projectsData = [
   {
     id: "portfolio",
     title: "Portfolio Website",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    image: 'https://i.ibb.co/L37ph9N/p.png',
     tech: ["React", "TailwindCSS", "Framer Motion", "ShadCN UI"],
     description:
       "A sleek, animated portfolio website showcasing my skills, projects, and experience with dark/light mode support.",
-    github: "https://github.com/yourusername/portfolio",
-    live: "https://yourportfolio.com",
+    github: "https://github.com/sowmitraguho/my-portfolio",
+    live: "https://sweet-biscuit-c0800c.netlify.app/",
   },
   {
     id: "employee-management",
     title: "Employee Management System",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    image: 'https://i.ibb.co/cXgrrgFF/employee-Mng-Banner.png',
     tech: ["React", "Firebase", "React Router", "TailwindCSS"],
     description:
       "A full-featured employee management app with role-based authentication, payroll, and workflow tracking.",
-    github: "https://github.com/yourusername/employee-management",
-    live: "https://employee-management.live",
+    github: "https://github.com/sowmitraguho/employee-management-system",
+    live: "https://mellow-toffee-c45c62.netlify.app/",
   },
   {
     id: "learnxyz",
     title: "LearnXYZ",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+    image: 'https://i.ibb.co/sv9tGYvG/learn-XYZBanner.png',
     tech: ["React", "Node.js", "MongoDB", "Express"],
     description:
       "An interactive learning platform for math, science, and tech courses with structured lessons and quizzes.",
-    github: "https://github.com/yourusername/learnxyz",
-    live: "https://learnxyz.com",
+    github: "https://github.com/sowmitraguho/LearnXYZ",
+    live: "https://lambent-otter-224dfd.netlify.app/",
   },
   {
     id: "hobby-hub",
     title: "Hobby Hub",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+    image: 'https://i.ibb.co/60Tt2W74/hobbyhub-Banner.png',
     tech: ["React", "Firebase", "Stripe", "TailwindCSS"],
     description:
       "An event organizing site where users can create, discover, and participate in various hobbies and events.",
-    github: "https://github.com/yourusername/hobby-hub",
-    live: "https://hobbyhub.live",
+    github: "https://github.com/sowmitraguho/hobbyhub",
+    live: "https://gentle-dieffenbachia-f7dd6c.netlify.app/",
   },
 ];
+
 
 export default function ProjectsSection() {
   const navigate = useNavigate();

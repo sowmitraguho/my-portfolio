@@ -69,21 +69,21 @@ const HeroSection = () => {
 
         <div className="mt-8 flex justify-center md:justify-start gap-4">
           <Link
-            to="#projects"
-            className="inline-block px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-blue-500 hover:scale-110"
+            to=""
+            className="inline-block px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-blue-500 hover:scale-102"
           >
-            View Projects
+            Download Resume
           </Link>
 
 
           {/* Second button: router Link with cleaner gradient border */}
           <Link
             to="/contact"
-            className="inline-block px-16 py-3 rounded-md border-2 border-transparent font-semibold relative overflow-hidden group hover:scale-110"
+            className="inline-block px-16 py-3 rounded-md border-2 border-transparent font-semibold relative overflow-hidden group hover:scale-102"
           >
             {/* Border Gradient */}
             <span className="absolute inset-0 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px]">
-              <span className="flex h-full w-full rounded-md bg-white dark:bg-gray-900 items-center justify-center group-hover:bg-gradient-to-r  transition-all duration-300">
+              <span className="flex h-full w-full rounded-md bg-white dark:bg-gray-900 items-center justify-center group-hover:bg-gradient-to-r transition-all duration-300">
                 Contact Me
               </span>
             </span>

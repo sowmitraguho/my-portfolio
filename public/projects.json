@@ -7,7 +7,24 @@
     "description": "A sleek, animated portfolio website showcasing my skills, projects, and experience with dark/light mode support.",
     "github": "https://github.com/sowmitraguho/my-portfolio",
     "live": "https://sweet-biscuit-c0800c.netlify.app/",
-    "deviceView": ["https://i.ibb.co/b5NyBgWz/mobile-View.png", "https://i.ibb.co/27XrNPq7/tablet-View.png", "https://i.ibb.co/L37ph9N/p.png"]
+    "deviceView": [
+      "https://i.ibb.co/b5NyBgWz/mobile-View.png",
+      "https://i.ibb.co/27XrNPq7/tablet-View.png",
+      "https://i.ibb.co/L37ph9N/p.png"
+    ],
+    "details": {
+      "brief": "A sleek, animated personal portfolio showcasing my skills, projects, and experience with light/dark mode, responsive design, and modern animations using Framer Motion.",
+      "challenges": [
+        "Balancing performance with animations.",
+        "Making the design visually appealing for both light and dark mode.",
+        "Structuring reusable components for easy future updates."
+      ],
+      "futurePlans": [
+        "Add a blog section to share development tips and experiences.",
+        "Implement multilingual support for wider audience reach.",
+        "Introduce backend analytics to track visitor engagement."
+      ]
+    }
   },
   {
     "id": "employee-management",
@@ -16,7 +33,20 @@
     "tech": ["React", "Firebase", "React Router", "TailwindCSS"],
     "description": "A full-featured employee management app with role-based authentication, payroll, and workflow tracking.",
     "github": "https://github.com/sowmitraguho/employee-management-system",
-    "live": "https://mellow-toffee-c45c62.netlify.app/"
+    "live": "https://mellow-toffee-c45c62.netlify.app/",
+    "details": {
+      "brief": "A role-based employee management app featuring authentication, payroll processing, and workflow tracking for organizations.",
+      "challenges": [
+        "Implementing secure role-based authentication with Firebase.",
+        "Designing an intuitive interface for complex management tasks.",
+        "Handling dynamic data updates in real-time."
+      ],
+      "futurePlans": [
+        "Add automated report generation.",
+        "Integrate a leave management system.",
+        "Build a mobile-friendly PWA version for on-the-go access."
+      ]
+    }
   },
   {
     "id": "learnxyz",
@@ -25,7 +55,20 @@
     "tech": ["React", "Node.js", "MongoDB", "Express"],
     "description": "An interactive learning platform for math, science, and tech courses with structured lessons and quizzes.",
     "github": "https://github.com/sowmitraguho/LearnXYZ",
-    "live": "https://lambent-otter-224dfd.netlify.app/"
+    "live": "https://lambent-otter-224dfd.netlify.app/",
+    "details": {
+      "brief": "An interactive course-selling platform offering math, science, and technology lessons with structured modules, quizzes, and payment integration.",
+      "challenges": [
+        "Organizing and presenting large amounts of learning content clearly.",
+        "Implementing secure payment and course access controls.",
+        "Managing database structure for courses and users."
+      ],
+      "futurePlans": [
+        "Add live class streaming and Q&A sessions.",
+        "Implement gamification features like badges and leaderboards.",
+        "Create a mobile app for easier learning on the go."
+      ]
+    }
   },
   {
     "id": "hobby-hub",
@@ -34,6 +77,19 @@
     "tech": ["React", "Firebase", "Stripe", "TailwindCSS"],
     "description": "An event organizing site where users can create, discover, and participate in various hobbies and events.",
     "github": "https://github.com/sowmitraguho/hobbyhub",
-    "live": "https://gentle-dieffenbachia-f7dd6c.netlify.app/"
+    "live": "https://gentle-dieffenbachia-f7dd6c.netlify.app/",
+    "details": {
+      "brief": "An event organizing platform where users can create, join, and explore various hobby-based activities.",
+      "challenges": [
+        "Designing a payment flow with Stripe integration.",
+        "Managing user roles for event hosts and participants.",
+        "Making the platform engaging and easy to navigate."
+      ],
+      "futurePlans": [
+        "Add event review and rating systems.",
+        "Implement location-based event recommendations.",
+        "Introduce social features like group chats and community boards."
+      ]
+    }
   }
 ]

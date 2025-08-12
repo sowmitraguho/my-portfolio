@@ -7,8 +7,6 @@ import About from './Pages/About/About'
 import EducationSection from './Pages/EducationSection/EducationSection'
 import SkillSection from './Pages/SkillSection/SkillSection'
 import ProjectsSection from './Pages/Projects/ProjectsSection'
-
-import Footer from './Pages/Footer/Footer'
 import MessageMeSection from './Pages/Contacts/MessageMeSection'
 
 
@@ -22,7 +20,6 @@ function App() {
       <SkillSection />
       <ProjectsSection />
       <MessageMeSection />
-      <Footer />
     </>
   )
 }

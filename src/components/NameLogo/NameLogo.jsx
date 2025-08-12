@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Sparkles } from "lucide-react";
+import Logo from "../Logo/Logo";
 
 export function NameLogo({ className }) {
   return (
@@ -11,7 +12,8 @@ export function NameLogo({ className }) {
     >
       {/* Small icon */}
       <div className="p-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-        <Sparkles className="w-4 h-4 text-white" />
+        
+        <Logo/>
       </div>
 
       {/* Logo text */}
