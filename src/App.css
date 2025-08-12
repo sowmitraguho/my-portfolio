@@ -1,0 +1,147 @@
+/* Google Fonts - Space Mono for terminal-like feel */
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+      body {
+        font-family: 'Space Mono', monospace;
+      }
+
+      /* Base glowing text effect */
+      .glow-text {
+        color: var(--accent-color);
+        text-shadow:
+          0 0 5px var(--accent-color),
+          0 0 10px var(--accent-color),
+          0 0 15px var(--accent-color);
+        animation: subtle-glow 3s infinite alternate ease-in-out;
+      }
+
+      @keyframes subtle-glow {
+        0% { text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+        100% { text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color); }
+      }
+
+      /* Rotating border animation */
+      @keyframes rotate-border {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+
+      .rotating-border {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem; /* Adjust based on desired corner roundness */
+        z-index: 1;
+      }
+
+      .rotating-border::before {
+        content: '';
+        position: absolute;
+        top: -200%;
+        left: -200%;
+        width: 400%;
+        height: 400%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0%,
+          transparent 25%,
+          var(--border-glow-color) 25%,
+          var(--border-glow-color) 50%,
+          transparent 50%,
+          transparent 75%,
+          var(--secondary-glow-color) 75%,
+          var(--secondary-glow-color) 100%
+        );
+        animation: rotate-border 4s linear infinite;
+        z-index: -1;
+      }
+
+      /* Specific background animations */
+
+      /* Hero Background: Pulsing Hexagons */
+      @keyframes hex-grid-pulse {
+        0% { transform: scale(1); opacity: 0.05; }
+        50% { transform: scale(1.05); opacity: 0.08; }
+        100% { transform: scale(1); opacity: 0.05; }
+      }
+      .hero-bg-animation {
+        background-image:
+          linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+        background-size: 20px 20px; /* Size of grid cells */
+        animation: hex-grid-pulse 15s infinite alternate ease-in-out;
+      }
+
+      /* About Background: Flowing Lines */
+      @keyframes flow-lines {
+        0% { background-position: 0 0; }
+        100% { background-position: 200px 200px; }
+      }
+      .about-bg-animation {
+        background-image:
+          linear-gradient(135deg, rgba(100, 255, 218, 0.03) 25%, transparent 25%),
+          linear-gradient(225deg, rgba(100, 255, 218, 0.03) 25%, transparent 25%),
+          linear-gradient(45deg, rgba(100, 255, 218, 0.03) 25%, transparent 25%),
+          linear-gradient(315deg, rgba(100, 255, 218, 0.03) 25%, transparent 25%);
+        background-size: 200px 200px;
+        animation: flow-lines 30s linear infinite;
+      }
+
+      /* Education Background: Particle Stream */
+      @keyframes particle-stream {
+        0% { transform: translateY(0) scale(1); opacity: 0.05; }
+        100% { transform: translateY(-100%) scale(1.2); opacity: 0; }
+      }
+      .education-bg-animation {
+        background-image: radial-gradient(circle, var(--accent-color) 1px, transparent 1px);
+        background-size: 15px 15px;
+        animation: particle-stream 20s linear infinite;
+      }
+
+      /* Skills Background: Circuit Board */
+      @keyframes circuit-board {
+        0% { background-position: 0 0; }
+        100% { background-position: 40px 40px; }
+      }
+      .skills-bg-animation {
+        background-image:
+          linear-gradient(0deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: circuit-board 40s linear infinite;
+      }
+
+      /* Projects Background: Starfield */
+      @keyframes starfield {
+        from { background-position: 0 0; }
+        to { background-position: -10000px -10000px; }
+      }
+      .projects-bg-animation {
+        background: url('https://placehold.co/10x10/0A192F/64FFDA?text=.') repeat; /* Small dot for stars */
+        background-size: 10px 10px; /* Density of stars */
+        animation: starfield 200s linear infinite;
+      }
+
+      /* Contact Background: Swirling Nexus */
+      @keyframes swirling-nexus {
+        0% { transform: rotate(0deg); opacity: 0.05; }
+        100% { transform: rotate(360deg); opacity: 0.08; }
+      }
+      .contact-bg-animation {
+        background-image: conic-gradient(from 0deg, transparent 0%, var(--accent-color) 10%, transparent 20%, transparent 100%);
+        animation: swirling-nexus 40s linear infinite;
+      }
+
+      /* Fade-in for content elements */
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
+      .animation-delay-200 { animation-delay: 0.2s; }
+      .animation-delay-400 { animation-delay: 0.4s; }
+      .animation-delay-600 { animation-delay: 0.6s; }
+
+      /* Invert logos for dark theme if needed */
+      .invert-for-dark {
+        filter: invert(0.8) sepia(1) saturate(5) hue-rotate(180deg) brightness(1.2);
+      }
