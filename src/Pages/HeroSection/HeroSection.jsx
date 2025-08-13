@@ -69,7 +69,7 @@ const HeroSection = () => {
 
         <div className="mt-8 flex justify-center md:justify-start gap-4">
           <Link
-            to=""
+            to="https://drive.google.com/file/d/1wDpSB-XWA_1OiAbklHwdAkDMi9hJUp_3/view?usp=sharing"
             className="inline-block px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-blue-500 hover:scale-102"
           >
             Download Resume
