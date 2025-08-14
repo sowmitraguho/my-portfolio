@@ -10,6 +10,7 @@ import ProjectsSection from './Pages/Projects/ProjectsSection'
 import MessageMeSection from './Pages/Contacts/MessageMeSection'
 
 
+
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
       <SkillSection />
       <ProjectsSection />
       <MessageMeSection />
+     
     </>
   )
 }

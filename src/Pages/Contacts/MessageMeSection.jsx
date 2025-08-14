@@ -5,21 +5,46 @@ import Lottie from "lottie-react";
 import contactAnim from "../../assets/Lottifiles/Email.json";
 import Particles from "@/components/Particles/Particles";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
+import emailjs from '@emailjs/browser';
+import { toast } from "sonner";
+
 
 export default function MessageMeSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const { theme } = useContext(ThemeContext);
-    const particleColors = theme === "dark"
-      ? ["#ffffff", "#aaaaaa"] // light particles for dark mode
-      : ["#1e40af", "#3b82f6"]; // blue-ish particles for light mode
+  const particleColors = theme === "dark"
+    ? ["#ffffff", "#aaaaaa"] // light particles for dark mode
+    : ["#1e40af", "#3b82f6"]; // blue-ish particles for light mode
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, form.current, {
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          toast("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          toast.error("Failed to send message. Please try again later.");
+          console.error("EmailJS error:", error);
+        },
+      );
+  };
+
+
   return (
     <section
       ref={ref}
       className="relative py-16 px-4 sm:px-6 lg:px-8 "
     >
       {/* Background animation */}
-           
+
       <AnimatePresence>
         {isInView && (
           <motion.div
@@ -29,16 +54,16 @@ export default function MessageMeSection() {
             transition={{ duration: 0.6 }}
             className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2 sm:grid-cols-1 items-center"
           >  <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: -10,
-                pointerEvents: 'none'
-              }}
-            >
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: -10,
+              pointerEvents: 'none'
+            }}
+          >
               <Particles
                 particleColors={particleColors}
                 particleCount={900}
@@ -48,8 +73,8 @@ export default function MessageMeSection() {
                 moveParticlesOnHover={true}
                 alphaParticles={false}
                 disableRotation={false}
-              /> 
-      
+              />
+
             </div>
             {/* LEFT: Heading + Contact Info */}
             <motion.div
@@ -98,11 +123,12 @@ export default function MessageMeSection() {
 
             {/* RIGHT: Contact Form */}
             <motion.form
+              ref={form}
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6 flex flex-col gap-4"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={sendEmail}
             >
               {/* Name */}
               <div>
@@ -111,6 +137,7 @@ export default function MessageMeSection() {
                 </label>
                 <input
                   type="text"
+                  name='user_name'
                   placeholder="Your Name"
                   className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
                   required
@@ -124,6 +151,7 @@ export default function MessageMeSection() {
                 </label>
                 <input
                   type="email"
+                  name='user_email'
                   placeholder="Your Email"
                   className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
                   required
@@ -138,12 +166,13 @@ export default function MessageMeSection() {
                 <textarea
                   placeholder="Write your message..."
                   rows="4"
+                  name='user_message'
                   className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
                   required
                 />
               </div>
 
-              
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -151,7 +180,7 @@ export default function MessageMeSection() {
                 type="submit"
               >
                 <span className="relative z-10">Send Message</span>
-               
+
                 <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-30"></span>
               </motion.button>
             </motion.form>

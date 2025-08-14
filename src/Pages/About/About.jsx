@@ -3,17 +3,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import myPhoto from "@/assets/myPhoto.png";
 import Particles from "@/components/Particles/Particles";
-import LightRays from "@/components/BackgroundAnimation/LightRays";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 
 const About = () => {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const particleColors = theme === "dark"
-    ? ["#ffffff", "#aaaaaa"] 
-    : ["#1e40af", "#3b82f6"]; 
+    ? ["#ffffff", "#aaaaaa"]
+    : ["#1e40af", "#3b82f6"];
   return (
     <section
       id="about"
@@ -98,16 +97,17 @@ const About = () => {
           to learn new technologies and improve my craft.
         </p>
 
-        <Button
-          variant="outline"
-          className="relative overflow-hidden px-6 py-3 rounded-md font-semibold border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-purple-500 transition-all duration-300 hover:scale-105"
-          onClick={() => {
-            navigate('/contact');
-          }}
+        <Link
+          to="/contact"
+          className="inline-block px-16 py-6 rounded-md border-2 border-transparent font-semibold relative overflow-hidden group hover:scale-102"
         >
-          <span className="relative z-10">Contact Me</span>
-          <span className="absolute inset-0 bg-white dark:bg-gray-900 m-[2px] rounded-md"></span>
-        </Button>
+          {/* Border Gradient */}
+          <span className="absolute inset-0 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px]">
+            <span className="flex h-full w-full rounded-md bg-white dark:bg-gray-900 items-center justify-center group-hover:bg-gradient-to-r transition-all duration-300">
+              Contact Me
+            </span>
+          </span>
+        </Link>
 
       </motion.div>
     </section>

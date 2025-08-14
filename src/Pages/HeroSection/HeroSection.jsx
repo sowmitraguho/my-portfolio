@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import heroAnimation from "../../assets/Lottifiles/heroAnimation2.json";
-import Galaxy from "@/components/BackgroundAnimation/Galaxy";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 import Particles from "@/components/Particles/Particles";
 import LightRays from "@/components/BackgroundAnimation/LightRays";
 import { Link } from "react-router";
+import { MdDownload } from "react-icons/md";
 
 const HeroSection = () => {
   const { theme } = useContext(ThemeContext);
@@ -70,16 +70,16 @@ const HeroSection = () => {
         <div className="mt-8 flex justify-center md:justify-start gap-4">
           <Link
             to="https://drive.google.com/file/d/1wDpSB-XWA_1OiAbklHwdAkDMi9hJUp_3/view?usp=sharing"
-            className="inline-block px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-blue-500 hover:scale-102"
+            className="flex items-center justify-center gap-1 px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-blue-500 hover:scale-102"
           >
-            Download Resume
+          Get Resume
           </Link>
 
 
           {/* Second button: router Link with cleaner gradient border */}
           <Link
             to="/contact"
-            className="inline-block px-16 py-3 rounded-md border-2 border-transparent font-semibold relative overflow-hidden group hover:scale-102"
+            className="inline-block px-16 py-6 rounded-md border-2 border-transparent font-semibold relative overflow-hidden group hover:scale-102"
           >
             {/* Border Gradient */}
             <span className="absolute inset-0 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px]">

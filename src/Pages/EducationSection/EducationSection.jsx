@@ -10,24 +10,24 @@ const educationData = [
   {
     title: "BSc in EEE",
     institution: "University of Chittagong",
-    year: "Ongoing",
+    year: "CGPA 2.89 / 4.00",
     description:
-      "Currently pursuing Bachelor of Science in Electrical and Electronic Engineering with a passion for technology and innovation.",
+      "Completed Bachelor of Science in Electrical and Electronic Engineering with a passion for technology and innovation. Developed strong analytical and problem-solving skills through coursework and projects.",
   },
   {
     title: "HSC",
     institution:
       "Chattagram City Corporation Kaiser-Niloufer College",
-    year: "Grade Point: 4.50 / 5.00",
+    year: "GPA: 4.50 / 5.00",
     description:
-      "Completed Higher Secondary Certificate with a strong foundation in science and mathematics.",
+      "Completed Higher Secondary Certificate with a strong foundation in science and mathematics. Achieved soft skills like communication and teamwork.",
   },
   {
     title: "SSC",
     institution: "J M Sen School & College",
     year: "GPA: 5.00 / 5.00",
     description:
-      "Achieved perfect GPA in Secondary School Certificate examination.",
+      "Achieved perfect GPA in Secondary School Certificate examination. Participated in various extracurricular activities and developed skills in team leadership and group collaboration.",
   },
 ];
 
@@ -70,7 +70,7 @@ const Education = () => {
           My Education
       </h2>
       <p className="text-center mt-5 mb-24 text-xl">
-        I am a self-taught web developer, so my academic background doesn’t fully reflect my skills and experience in web development.
+        I am a self-taught web developer, so my academic background doesn't fully reflect my skills and experience in web development.
       </p>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         
