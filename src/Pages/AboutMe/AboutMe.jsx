@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import myPhoto from "@/assets/myPhoto.png";
+import myPhoto from "@/assets/myPhotoHR.png";
 import Particles from "@/components/Particles/Particles";
 import LightRays from "@/components/BackgroundAnimation/LightRays";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
