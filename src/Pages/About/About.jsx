@@ -85,7 +85,7 @@ const About = () => {
           About Me
         </h2>
         <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Hello! I’m <strong>Sowmitra Guha</strong>, a passionate Web Developer
+          Hello! I'm <strong>Sowmitra Guha</strong>, a passionate Web Developer
           and Software Engineer dedicated to crafting beautiful, fast, and
           scalable web applications. With a strong foundation in JavaScript,
           React, and modern development tools, I enjoy turning ideas into
