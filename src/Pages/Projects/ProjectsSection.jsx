@@ -75,7 +75,7 @@ export default function ProjectsSection() {
             >
               <Particles
                 particleColors={particleColors}
-                particleCount={2000}
+                particleCount={500}
                 particleSpread={10}
                 speed={0.1}
                 particleBaseSize={100}
