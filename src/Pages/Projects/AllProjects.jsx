@@ -1,16 +1,9 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button"; // shadcn button
-import { Badge } from "@/components/ui/badge"; // shadcn badge
-import { FiGithub, FiExternalLink, FiInfo } from "react-icons/fi";
-import { useNavigate } from "react-router";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 import Particles from "@/components/Particles/Particles";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
-import hobbyhub from "@/assets/ProjectScreenShots/hobbyhubBanner.png";
-import learnXYZ from "@/assets/ProjectScreenShots/learnXYZBanner.png";
-import EmployeeMng from "@/assets/ProjectScreenShots/employeeMngBanner.png";
-import PortFolio from "@/assets/ProjectScreenShots/portfolioBanner.png";
+
 
 const projectsData = [
   {
@@ -56,7 +49,6 @@ const projectsData = [
 ];
 
 const AllProjects = () => {
-    const navigate = useNavigate();
   const { theme } = useContext(ThemeContext);
   const particleColors = theme === "dark"
     ? ["#ffffff", "#aaaaaa"] // light particles for dark mode

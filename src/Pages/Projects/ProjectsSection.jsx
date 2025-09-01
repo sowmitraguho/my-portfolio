@@ -1,8 +1,5 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button"; // shadcn button
-import { Badge } from "@/components/ui/badge"; // shadcn badge
-import { FiGithub, FiExternalLink, FiInfo } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
 import Particles from "@/components/Particles/Particles";
@@ -38,17 +35,7 @@ const projectsData = [
       "An interactive learning platform for math, science, and tech courses with structured lessons and quizzes.",
     github: "https://github.com/sowmitraguho/LearnXYZ",
     live: "https://lambent-otter-224dfd.netlify.app/",
-  },
-  {
-    id: "hobby-hub",
-    title: "Hobby Hub",
-    image: 'https://i.ibb.co/60Tt2W74/hobbyhub-Banner.png',
-    tech: ["React", "Firebase", "Stripe", "TailwindCSS"],
-    description:
-      "An event organizing site where users can create, discover, and participate in various hobbies and events.",
-    github: "https://github.com/sowmitraguho/hobbyhub",
-    live: "https://gentle-dieffenbachia-f7dd6c.netlify.app/",
-  },
+  }
 ];
 
 
@@ -62,29 +49,29 @@ export default function ProjectsSection() {
   return (
     <section className="relative max-w-7xl mx-auto px-6 py-12">
       {/* Background animation */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: -10,
-                pointerEvents: 'none'
-              }}
-            >
-              <Particles
-                particleColors={particleColors}
-                particleCount={500}
-                particleSpread={10}
-                speed={0.1}
-                particleBaseSize={100}
-                moveParticlesOnHover={true}
-                alphaParticles={false}
-                disableRotation={false}
-              /> 
-      
-            </div>
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -10,
+          pointerEvents: 'none'
+        }}
+      >
+        <Particles
+          particleColors={particleColors}
+          particleCount={500}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+
+      </div>
       <h2 className="text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
         My Projects
       </h2>
@@ -93,6 +80,18 @@ export default function ProjectsSection() {
         {projectsData.map((proj) => (
           <ProjectCard key={proj.id} proj={proj} />
         ))}
+      </div>
+      <div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="relative overflow-hidden px-12 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-indigo-500 to-purple-500 transition-all group my-4 flex justify-center" type="button"
+          onClick={() => navigate("/projects")}
+        >
+          <span className="relative z-10">View All Projects</span>
+
+          <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-30"></span>
+        </motion.button>
       </div>
     </section>
   );
