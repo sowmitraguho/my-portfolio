@@ -55,7 +55,7 @@ const Education = () => {
             >
               <Particles
                 particleColors={particleColors}
-                particleCount={2000}
+                particleCount={1000}
                 particleSpread={10}
                 speed={0.1}
                 particleBaseSize={100}
