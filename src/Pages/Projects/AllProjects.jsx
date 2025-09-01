@@ -77,7 +77,7 @@ const AllProjects = () => {
             >
               <Particles
                 particleColors={particleColors}
-                particleCount={500}
+                particleCount={50}
                 particleSpread={10}
                 speed={0.1}
                 particleBaseSize={100}
