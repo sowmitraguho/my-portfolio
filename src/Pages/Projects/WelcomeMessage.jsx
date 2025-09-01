@@ -1,6 +1,6 @@
 import Welcome from '@/components/BackgroundAnimation/Welcome';
 import React from 'react';
-import bike from '../../assets/Lottifiles/bike.json';
+import bike from '../../assets/Lottifiles/Bike.json';
 import Lottie from 'lottie-react';
 
 const WelcomeMessage = () => {
