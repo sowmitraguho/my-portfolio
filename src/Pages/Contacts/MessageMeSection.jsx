@@ -66,7 +66,7 @@ export default function MessageMeSection() {
           >
               <Particles
                 particleColors={particleColors}
-                particleCount={900}
+                particleCount={100}
                 particleSpread={10}
                 speed={0.1}
                 particleBaseSize={100}

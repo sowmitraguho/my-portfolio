@@ -66,7 +66,7 @@ export default function Footer() {
             >
               <Particles
                 particleColors={particleColors}
-                particleCount={300}
+                particleCount={50}
                 particleSpread={10}
                 speed={0.1}
                 particleBaseSize={100}
