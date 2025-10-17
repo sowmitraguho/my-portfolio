@@ -29,7 +29,7 @@ const projectsData = [
   {
     id: "Aurabeaute",
     title: "AuraBeaute",
-    image: 'https://i.ibb.co/sv9tGYvG/learn-XYZBanner.png',
+    image: 'https://i.ibb.co/bg2x2cXv/Screenshot-2025-10-17-082027.png',
     tech: ["NextJS", "TailwindCSS", "NextAuth.js", "ShadcnUi", "Node.js", "Express", "MongoDB", ],
     description:
       "A full-featured E-Commerce Web Application includes product management with add/update/delete functionality, secure user authentication with NextAuth.js, and a fully responsive front-end optimized for modern browsers and devices.",
