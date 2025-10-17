@@ -14,7 +14,7 @@ const projectsData = [
     description:
       "A sleek, animated portfolio website showcasing my skills, projects, and experience with dark/light mode support.",
     github: "https://github.com/sowmitraguho/my-portfolio",
-    live: "https://sweet-biscuit-c0800c.netlify.app/",
+    live: "https://sowmitra-guha-portfolio.netlify.app/",
   },
   {
     id: "employee-management",
@@ -27,15 +27,15 @@ const projectsData = [
     live: "https://mellow-toffee-c45c62.netlify.app/",
   },
   {
-    id: "learnxyz",
-    title: "LearnXYZ",
+    id: "Aurabeaute",
+    title: "AuraBeaute",
     image: 'https://i.ibb.co/sv9tGYvG/learn-XYZBanner.png',
-    tech: ["React", "Node.js", "MongoDB", "Express"],
+    tech: ["NextJS", "TailwindCSS", "NextAuth.js", "ShadcnUi", "Node.js", "Express", "MongoDB", ],
     description:
-      "An interactive learning platform for math, science, and tech courses with structured lessons and quizzes.",
-    github: "https://github.com/sowmitraguho/LearnXYZ",
-    live: "https://lambent-otter-224dfd.netlify.app/",
-  }
+      "A full-featured E-Commerce Web Application includes product management with add/update/delete functionality, secure user authentication with NextAuth.js, and a fully responsive front-end optimized for modern browsers and devices.",
+    github: "https://github.com/sowmitraguho/nextjs_ecommerce_site",
+    live: "https://aurabeaute.netlify.app/",
+  },
 ];
 
 

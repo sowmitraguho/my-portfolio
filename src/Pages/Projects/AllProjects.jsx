@@ -14,7 +14,7 @@ const projectsData = [
     description:
       "A sleek, animated portfolio website showcasing my skills, projects, and experience with dark/light mode support.",
     github: "https://github.com/sowmitraguho/my-portfolio",
-    live: "https://sweet-biscuit-c0800c.netlify.app/",
+    live: "https://sowmitra-guha-portfolio.netlify.app/",
   },
   {
     id: "employee-management",
@@ -25,6 +25,16 @@ const projectsData = [
       "A full-featured employee management app with role-based authentication, payroll, and workflow tracking.",
     github: "https://github.com/sowmitraguho/employee-management-system",
     live: "https://mellow-toffee-c45c62.netlify.app/",
+  },
+  {
+    id: "Aurabeaute",
+    title: "AuraBeaute",
+    image: 'https://i.ibb.co/sv9tGYvG/learn-XYZBanner.png',
+    tech: ["NextJS", "TailwindCSS", "NextAuth.js", "ShadcnUi", "Node.js", "Express", "MongoDB", ],
+    description:
+      "A full-featured E-Commerce Web Application includes product management with add/update/delete functionality, secure user authentication with NextAuth.js, and a fully responsive front-end optimized for modern browsers and devices.",
+    github: "https://github.com/sowmitraguho/nextjs_ecommerce_site",
+    live: "https://aurabeaute.netlify.app/",
   },
   {
     id: "learnxyz",
