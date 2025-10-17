@@ -3,7 +3,12 @@
     "id": "portfolio",
     "title": "Portfolio Website",
     "image": "https://i.ibb.co/L37ph9N/p.png",
-    "tech": ["React", "TailwindCSS", "Framer Motion", "ShadCN UI"],
+    "tech": [
+      "React",
+      "TailwindCSS",
+      "Framer Motion",
+      "ShadCN UI"
+    ],
     "description": "A sleek, animated portfolio website showcasing my skills, projects, and experience with dark/light mode support.",
     "github": "https://github.com/sowmitraguho/my-portfolio",
     "live": "https://sweet-biscuit-c0800c.netlify.app/",
@@ -30,7 +35,12 @@
     "id": "employee-management",
     "title": "Employee Management System",
     "image": "https://i.ibb.co/cXgrrgFF/employee-Mng-Banner.png",
-    "tech": ["React", "Firebase", "React Router", "TailwindCSS"],
+    "tech": [
+      "React",
+      "Firebase",
+      "React Router",
+      "TailwindCSS"
+    ],
     "description": "A full-featured employee management app with role-based authentication, payroll, and workflow tracking.",
     "github": "https://github.com/sowmitraguho/employee-management-system",
     "live": "https://mellow-toffee-c45c62.netlify.app/",
@@ -49,10 +59,42 @@
     }
   },
   {
+    "id": "Aurabeaute",
+    "title": "AuraBeaute",
+    "image": "https://i.ibb.co/bg2x2cXv/Screenshot-2025-10-17-082027.png",
+    "tech": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express"
+    ],
+    "description": "A full-featured E-Commerce Web Application includes product management with add/update/delete functionality, secure user authentication with NextAuth.js, and a fully responsive front-end optimized for modern browsers and devices.",
+    "github": "https://github.com/sowmitraguho/nextjs_ecommerce_site",
+    "live": "https://aurabeaute.netlify.app/",
+    "details": {
+      "brief": "A full-featured E-Commerce Web Application includes product management with add/update/delete functionality, secure user authentication with NextAuth.js, and a fully responsive front-end optimized for modern browsers and devices.",
+      "challenges": [
+        "Organizing and presenting large amounts of products categorically.",
+        "Implementing secure payment and cart updating",
+        "Managing database structure for products and users."
+      ],
+      "futurePlans": [
+        "Add notification settings for users and admins",
+        "Implement delivery tracking system",
+        "Create a mobile app for easier shopping and sales"
+      ]
+    }
+  },
+  {
     "id": "learnxyz",
     "title": "LearnXYZ",
     "image": "https://i.ibb.co/sv9tGYvG/learn-XYZBanner.png",
-    "tech": ["React", "Node.js", "MongoDB", "Express"],
+    "tech": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express"
+    ],
     "description": "An interactive learning platform for math, science, and tech courses with structured lessons and quizzes.",
     "github": "https://github.com/sowmitraguho/LearnXYZ",
     "live": "https://lambent-otter-224dfd.netlify.app/",
@@ -74,7 +116,12 @@
     "id": "hobby-hub",
     "title": "Hobby Hub",
     "image": "https://i.ibb.co/60Tt2W74/hobbyhub-Banner.png",
-    "tech": ["React", "Firebase", "Stripe", "TailwindCSS"],
+    "tech": [
+      "React",
+      "Firebase",
+      "Stripe",
+      "TailwindCSS"
+    ],
     "description": "An event organizing site where users can create, discover, and participate in various hobbies and events.",
     "github": "https://github.com/sowmitraguho/hobbyhub",
     "live": "https://gentle-dieffenbachia-f7dd6c.netlify.app/",
