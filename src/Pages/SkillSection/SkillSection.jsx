@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SiC, SiCplusplus, SiJavascript, SiTypescript, SiPython, SiReact, SiTailwindcss, SiBootstrap, SiHtml5, SiCss3, SiDaisyui, SiShadcnui, SiExpress, SiNodedotjs, SiFirebase, SiMongodb, SiNetlify, SiRender, SiGit, SiNextdotjs } from "react-icons/si";
+import { SiC, SiCplusplus, SiJavascript, SiTypescript, SiPython, SiReact, SiTailwindcss, SiBootstrap, SiHtml5, SiCss3, SiDaisyui, SiShadcnui, SiExpress, SiNodedotjs, SiFirebase, SiMongodb, SiNetlify, SiRender, SiGit, SiNextdotjs, SiMaterialdesign, SiFramer, SiNestjs, SiSupabase, SiPostgresql, SiMongoose, SiVercel, SiGithub } from "react-icons/si";
 import Lottie from "lottie-react";
 import skillsAnimation from "@/assets/Lottifiles/skillsAnimation.json"; // Replace with your lottie JSON path
 import { ThemeContext } from "@/Contexts/ThemeContexts/ThemeContext";
@@ -22,22 +22,29 @@ const skillSections = [
     section: "Frontend Technologies",
     skills: [
       { name: "ReactJS", icon: <SiReact size={30} />, description: "UI library" },
+      { name: "NextJS", icon: <SiNextdotjs size={30} />, description: "React framework (Learning)" },
       { name: "TailwindCSS", icon: <SiTailwindcss size={30} />, description: "Utility-first CSS" },
       { name: "Bootstrap", icon: <SiBootstrap size={30} />, description: "CSS framework" },
       { name: "HTML", icon: <SiHtml5 size={30} />, description: "Markup language" },
       { name: "CSS", icon: <SiCss3 size={30} />, description: "Style sheets" },
       { name: "DaisyUI", icon: <SiDaisyui size={30} />, description: "Tailwind CSS components" },
       { name: "ShadcnUI", icon: <SiShadcnui size={30} />, description: "Component library" },
-      { name: "NextJS", icon: <SiNextdotjs size={30} />, description: "React framework (Learning)" },
+      { name: "MaterialUI", icon: <SiMaterialdesign size={30} />, description: "Component library" },
+      { name: "Framer Motion", icon: <SiFramer size={30} />, description: "Component library" },
+
     ],
   },
   {
     section: "Backend & Databases",
     skills: [
-      { name: "Express", icon: <SiExpress size={30} />, description: "Node.js framework" },
       { name: "NodeJS", icon: <SiNodedotjs size={30} />, description: "JavaScript runtime" },
+      { name: "Express", icon: <SiExpress size={30} />, description: "Node.js framework" },
+      { name: "NestJS", icon: <SiNestjs size={30} />, description: "Node.js framework" },
       { name: "Firebase", icon: <SiFirebase size={30} />, description: "Backend platform" },
+      { name: "Supabase", icon: <SiSupabase size={30} />, description: "Backend platform" },
       { name: "MongoDB", icon: <SiMongodb size={30} />, description: "NoSQL database" },
+      { name: "Mongoose", icon: <SiMongoose size={30} />, description: "NoSQL database" },
+      { name: "Postgresql", icon: <SiPostgresql size={30} />, description: "NoSQL database" },
     ],
   },
   {
@@ -45,7 +52,9 @@ const skillSections = [
     skills: [
       { name: "Netlify", icon: <SiNetlify size={30} />, description: "Deployment platform" },
       { name: "Render", icon: <SiRender size={30} />, description: "Cloud hosting" },
+      { name: "Vercel", icon: <SiVercel size={30} />, description: "Cloud hosting" },
       { name: "Git", icon: <SiGit size={30} />, description: "Version control" },
+      { name: "Github", icon: <SiGithub size={30} />, description: "Version control" },
     ],
   },
 ];
@@ -55,11 +64,11 @@ const skillSections = [
 const SkillSection = () => {
   const { theme } = useContext(ThemeContext);
   const particleColors = theme === "dark"
-    ? ["#ffffff", "#aaaaaa"] 
+    ? ["#ffffff", "#aaaaaa"]
     : ["#1e40af", "#3b82f6"];
   return (
     <section className="relative px-6 md:px-20 py-16 transition-colors duration-500 min-h-screen">
-       {/* Background animation */}
+      {/* Background animation */}
       <div
         style={{
           position: 'absolute',
@@ -71,7 +80,7 @@ const SkillSection = () => {
           pointerEvents: 'none'
         }}
       >
-         <Particles
+        <Particles
           particleColors={particleColors}
           particleCount={500}
           particleSpread={10}
@@ -80,33 +89,33 @@ const SkillSection = () => {
           moveParticlesOnHover={true}
           alphaParticles={false}
           disableRotation={false}
-        /> 
+        />
 
       </div>
-       {/* Headline */}
+      {/* Headline */}
       <h2 className="text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
         My Skills & Expertise
       </h2>
-     <div className="flex flex-col-reverse md:flex-row items-start gap-10">
-       {/* Left Skills List */}
-      <div className="flex-1 space-y-10 max-w-xl w-full">
-        {skillSections.map(({ section, skills }) => (
-          <div key={section}>
-            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">{section}</h3>
-            <div className="flex flex-wrap gap-4">
-              {skills.map(({ name, icon, description }) => (
-                <SkillCard key={name} icon={icon} name={name} description={description} />
-              ))}
+      <div className="flex flex-col-reverse md:flex-row items-start gap-10">
+        {/* Left Skills List */}
+        <div className="flex-1 space-y-10 max-w-xl w-full">
+          {skillSections.map(({ section, skills }) => (
+            <div key={section}>
+              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">{section}</h3>
+              <div className="flex flex-wrap gap-4">
+                {skills.map(({ name, icon, description }) => (
+                  <SkillCard key={name} icon={icon} name={name} description={description} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Right Lottie Animation */}
-      <div className="flex-1 max-w-lg w-full md:flex items-center justify-center md:mt-50">
-        <Lottie animationData={skillsAnimation} loop autoplay style={{ width: "100%", height: "100%" }} />
+        {/* Right Lottie Animation */}
+        <div className="flex-1 max-w-lg w-full md:flex items-center justify-center md:mt-50">
+          <Lottie animationData={skillsAnimation} loop autoplay style={{ width: "100%", height: "100%" }} />
+        </div>
       </div>
-     </div>
     </section>
   );
 };
