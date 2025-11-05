@@ -54,7 +54,7 @@ const projectsData = [
     description:
       "An event organizing site where users can create, discover, and participate in various hobbies and events.",
     github: "https://github.com/sowmitraguho/hobbyhub",
-    live: "https://gentle-dieffenbachia-f7dd6c.netlify.app/",
+    live: "https://hobbyhub-eventmanagment.netlify.app",
   },
 ];
 

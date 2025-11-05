@@ -11,7 +11,7 @@
     ],
     "description": "A sleek, animated portfolio website showcasing my skills, projects, and experience with dark/light mode support.",
     "github": "https://github.com/sowmitraguho/my-portfolio",
-    "live": "https://sweet-biscuit-c0800c.netlify.app/",
+    "live": "https://sowmitra-guha-portfolio.netlify.app/",
     "deviceView": [
       "https://i.ibb.co/b5NyBgWz/mobile-View.png",
       "https://i.ibb.co/27XrNPq7/tablet-View.png",
@@ -124,7 +124,7 @@
     ],
     "description": "An event organizing site where users can create, discover, and participate in various hobbies and events.",
     "github": "https://github.com/sowmitraguho/hobbyhub",
-    "live": "https://gentle-dieffenbachia-f7dd6c.netlify.app/",
+    "live": "https://hobbyhub-eventmanagment.netlify.app",
     "details": {
       "brief": "An event organizing platform where users can create, join, and explore various hobby-based activities.",
       "challenges": [
